@@ -1,0 +1,14 @@
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: #161619;
+  margin-top: auto;
+  font-size: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer i{
+  margin-right: 20px;
+  color: #918E9B;
+}

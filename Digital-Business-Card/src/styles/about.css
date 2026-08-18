@@ -2,7 +2,7 @@
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 }
 
 .about h1{
@@ -16,5 +16,6 @@
   font-size: 10px;
   color: #DCDCDC;
   font-weight: 300;
+  margin-bottom: 0;
 }
 
