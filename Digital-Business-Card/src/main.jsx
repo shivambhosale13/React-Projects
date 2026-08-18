@@ -6,15 +6,18 @@ import Footer from './components/footer';
 
 const root = createRoot(document.querySelector('#root'));
 
+function BusinessCard(){
+  return (
+    <div className="business-card">
+      <Info />
+      <About />
+      <Interests />
+      <Footer />
+    </div>
+  )
+}
 
 root.render(
-  <>
-    <Info />
-    <About />
-    <Interests />
-    <Footer />
-  </>
-  
-
+  <BusinessCard/>
 )
 
