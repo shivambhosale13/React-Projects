@@ -11,4 +11,5 @@ footer{
 footer i{
   margin-right: 20px;
   color: #918E9B;
+  cursor: pointer;
 }
