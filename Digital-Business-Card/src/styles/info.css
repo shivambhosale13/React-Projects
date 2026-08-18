@@ -1,0 +1,63 @@
+.profile-photo{
+   width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info h1{
+  font-size: 25px;
+  margin-bottom: 0px;
+  font-weight: 700;
+}
+
+.info h2{
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #F3BF99;
+  font-weight: 300;
+}
+
+.info h3{
+  font-size: 10px;
+  margin-top: 0;
+}
+
+.social-media{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.Email-button,
+.LinkedIn-button {
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.Email-button {
+    background-color: white;
+    color: #333;
+}
+
+.LinkedIn-button {
+    background-color: #5093E2;
+    color: white;
+}
+
+.Email-button i , .LinkedIn-button i{
+  margin-right: 8px;
+}
