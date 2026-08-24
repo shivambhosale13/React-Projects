@@ -1,3 +1,4 @@
+import React from "react"
 export default function Main() {
 
     /**
@@ -6,7 +7,7 @@ export default function Main() {
      * ingredient to our list!
      */
 
-    const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+    const [ingredients , setIngredients]= React.useState(["Chicken", "Oregano", "Tomatoes"])
 
     const ingredientsListItems = ingredients.map(ingredient => (
         <li key={ingredient}>{ingredient}</li>
@@ -18,6 +19,8 @@ export default function Main() {
          * Just use the newIngredient below to help you finish the
          * challenge.
          */
+
+        setIngredients(prevIngredients => [...prevIngredients , newIngredient])
         event.preventDefault()
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient")
