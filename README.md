@@ -9,7 +9,9 @@ This repository contains projects ranging from beginner React exercises to compl
 | #  | Project                   | Description                                       |
 | -- | ------------------------- | ------------------------------------------------- |
 | 01 | Digital Business Card     | A personal digital business card built with React |
-| 02 | More Projects Coming Soon | Continuously adding new React projects            |
+| 02 | Contact Book              | Static Contact book created using React           |
+| 03 | Travel Journal            | Static Travel Journal created using React         |
+| 04 | More Projects Coming Soon | Continuously adding new React projects            |
 
 ## 🛠️ Technologies
 
@@ -44,6 +46,8 @@ Through these projects, I'm practicing:
 React Projects/
 │
 ├── Digital-Business-Card/
+├── Contact-Book/
+├── Travel-Journal/
 ├── More Projects/
 └── README.md
 ```
