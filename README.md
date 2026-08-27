@@ -11,7 +11,8 @@ This repository contains projects ranging from beginner React exercises to compl
 | 01 | Digital Business Card     | A personal digital business card built with React |
 | 02 | Contact Book              | Static Contact book created using React           |
 | 03 | Travel Journal            | Static Travel Journal created using React         |
-| 04 | More Projects Coming Soon | Continuously adding new React projects            |
+| 04 | Chef Claude               | An personal chef created using React and AI       |
+| 05 | More Projects Coming Soon | Continuously adding new React projects            |
 
 ## 🛠️ Technologies
 
@@ -48,6 +49,7 @@ React Projects/
 ├── Digital-Business-Card/
 ├── Contact-Book/
 ├── Travel-Journal/
+├── Chef-Claude/
 ├── More Projects/
 └── README.md
 ```
