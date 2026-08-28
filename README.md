@@ -12,7 +12,8 @@ This repository contains projects ranging from beginner React exercises to compl
 | 02 | Contact Book              | Static Contact book created using React           |
 | 03 | Travel Journal            | Static Travel Journal created using React         |
 | 04 | Chef Claude               | An personal chef created using React and AI       |
-| 05 | More Projects Coming Soon | Continuously adding new React projects            |
+| 05 | Meme Generator            | A Fun project which generates Memes using React   |
+| 06 | More Projects Coming Soon | Continuously adding new React projects            |
 
 ## 🛠️ Technologies
 
@@ -50,6 +51,7 @@ React Projects/
 ├── Contact-Book/
 ├── Travel-Journal/
 ├── Chef-Claude/
+├── Meme-Generator/
 ├── More Projects/
 └── README.md
 ```
