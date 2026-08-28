@@ -1,10 +1,19 @@
-import React from "react"
+import { useState } from "react"
+
 export default function Main() {
-    const [meme , setMeme] = React.useState({
-      topText : 'One does not simply',
-      bottomText : 'Walk into Mordor',
-      imageUrl : 'http://i.imgflip.com/1bij.jpg'
+    const [meme, setMeme] = useState({
+        topText: "One does not simply",
+        bottomText: "Walk into Mordor",
+        imageUrl: "http://i.imgflip.com/1bij.jpg"
     })
+    
+    function handleChange(event) {
+        const {value, name} = event.currentTarget
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
 
     return (
         <main>
@@ -14,6 +23,8 @@ export default function Main() {
                         type="text"
                         placeholder="One does not simply"
                         name="topText"
+                        onChange={handleChange}
+                        value={meme.topText}
                     />
                 </label>
 
@@ -22,6 +33,8 @@ export default function Main() {
                         type="text"
                         placeholder="Walk into Mordor"
                         name="bottomText"
+                        onChange={handleChange}
+                        value={meme.bottomText}
                     />
                 </label>
                 <button>Get a new meme image 🖼</button>
