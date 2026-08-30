@@ -4,7 +4,15 @@ import { nanoid } from "nanoid"
 
 export default function App() {
     const [dice, setDice] = useState(generateAllNewDice())
+    /**
+     * Challenge part 2:
+     * 1. Create a new `gameWon` variable.
+     * 2. If `gameWon` is true, change the button text to
+     *    "New Game" instead of "Roll"
+     */
 
+    let gameWon = dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value)
+    
     function generateAllNewDice() {
         return new Array(10)
             .fill(0)
@@ -47,7 +55,9 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button className="roll-dice" onClick={rollDice}>Roll</button>
+            <button className="roll-dice" onClick={rollDice}>
+                {gameWon ? 'New Game' : 'Roll'}
+            </button>
         </main>
     )
 }
