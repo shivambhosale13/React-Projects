@@ -13,7 +13,8 @@ This repository contains projects ranging from beginner React exercises to compl
 | 03 | Travel Journal            | Static Travel Journal created using React         |
 | 04 | Chef Claude               | An personal chef created using React and AI       |
 | 05 | Meme Generator            | A Fun project which generates Memes using React   |
-| 06 | More Projects Coming Soon | Continuously adding new React projects            |
+| 07 | Tenzies                   | A React Game which you can play at any age        |
+| 08 | More Projects Coming Soon | Continuously adding new React projects            |
 
 ## 🛠️ Technologies
 
@@ -52,6 +53,7 @@ React Projects/
 ├── Travel-Journal/
 ├── Chef-Claude/
 ├── Meme-Generator/
+├── Tenzies/
 ├── More Projects/
 └── README.md
 ```
