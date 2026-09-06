@@ -6,15 +6,15 @@ export default function AssemblyEndgame() {
     // State values
     const [currentWord, setCurrentWord] = useState("react")
     const [guessedLetters, setGuessedLetters] = useState([])
-    
+
     // Derived values
-    const wrongGuessCount = 
+    const wrongGuessCount =
         guessedLetters.filter(letter => !currentWord.includes(letter)).length
-    const isGameWon = 
+    const isGameWon =
         currentWord.split("").every(letter => guessedLetters.includes(letter))
     const isGameLost = wrongGuessCount >= languages.length - 1
     const isGameOver = isGameWon || isGameLost
-    
+
     // Static values
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
@@ -58,7 +58,7 @@ export default function AssemblyEndgame() {
             correct: isCorrect,
             wrong: isWrong
         })
-        
+
         return (
             <button
                 className={className}
@@ -69,6 +69,11 @@ export default function AssemblyEndgame() {
             </button>
         )
     })
+    
+    const gameStatusClass = clsx("game-status", {
+        won: isGameWon,
+        lost: isGameLost
+    })
 
     return (
         <main>
@@ -77,19 +82,38 @@ export default function AssemblyEndgame() {
                 <p>Guess the word within 8 attempts to keep the
                 programming world safe from Assembly!</p>
             </header>
-            <section className="game-status">
-                <h2>You win!</h2>
-                <p>Well done! 🎉</p>
+
+            <section className={gameStatusClass}>
+                {isGameOver ? (
+                    isGameWon ? (
+                        <>
+                            <h2>You win!</h2>
+                            <p>Well done! 🎉</p>
+                        </>
+                    ) : (
+                        <>
+                            <h2>Game over!</h2>
+                            <p>You lose! Better start learning Assembly 😭</p>
+                        </>
+                    )
+                ) : (
+                        null
+                    )
+                }
             </section>
+
             <section className="language-chips">
                 {languageElements}
             </section>
+
             <section className="word">
                 {letterElements}
             </section>
+
             <section className="keyboard">
                 {keyboardElements}
             </section>
+
             {isGameOver && <button className="new-game">New Game</button>}
         </main>
     )
