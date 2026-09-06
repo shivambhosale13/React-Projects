@@ -80,6 +80,13 @@ section.word > span {
     border-bottom: 1px solid #F9F4DA;
 }
 
+section.word > span.notGuessed{
+    font-size: 0;
+}
+
+section.word > span.guessed{
+    font-size: 1.125rem;
+}
 section.keyboard {
     display: flex;
     flex-wrap: wrap;
