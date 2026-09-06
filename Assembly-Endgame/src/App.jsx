@@ -1,24 +1,10 @@
 import {useState} from "react"
 import { languages } from "../languages"
 import clsx from 'clsx'
+import { useWindowSize } from 'react-use'
 import { getFarewellText , getRandomWord } from "../utils"
-/**
- * Backlog:
- * 
- * ✅ Farewell messages in status section
- * ✅ Disable the keyboard when the game is over
- * ✅ Fix a11y issues
- * - Choose a random word from a list of words
- * - Make the New Game button reset the game
- * - Confetti drop when the user wins
- * 
- * Challenge: Choose a random word from a list of words
- * 
- * 1. Create a new function in utils.js that chooses a random
- *    word from the imported array of words and returns it
- * 2. import the function into this file
- * 3. Figure out where to use that function.
- */
+import Confetti from "react-confetti"
+
 
 export default function AssemblyEndgame() {
     // State values
@@ -46,7 +32,7 @@ export default function AssemblyEndgame() {
                 [...prevLetters, letter]
         )
     }
-    
+
     function startNewGame() {
         setCurrentWord(getRandomWord())
         setGuessedLetters([])
@@ -70,11 +56,17 @@ export default function AssemblyEndgame() {
         )
     })
 
-    const letterElements = currentWord.split("").map((letter, index) => (
-        <span key={index}>
-            {guessedLetters.includes(letter) ? letter.toUpperCase() : ""}
-        </span>
-    ))
+    const letterElements = currentWord.split("").map((letter, index) => {
+        const shouldRevealLetter = isGameLost || guessedLetters.includes(letter)
+        const letterClassName = clsx(
+            isGameLost && !guessedLetters.includes(letter) && "missed-letter"
+        )
+        return (
+            <span key={index} className={letterClassName}>
+                {shouldRevealLetter ? letter.toUpperCase() : ""}
+            </span>
+        )
+    })
 
     const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = guessedLetters.includes(letter)
@@ -121,7 +113,7 @@ export default function AssemblyEndgame() {
                     <p>Well done! 🎉</p>
                 </>
             )
-        } 
+        }
         if (isGameLost) {
             return (
                 <>
@@ -130,21 +122,32 @@ export default function AssemblyEndgame() {
                 </>
             )
         }
-        
+
         return null
     }
 
+    const { width, height } = useWindowSize()
+
     return (
         <main>
+            {
+                isGameWon && 
+                    <Confetti
+                        recycle={false}
+                        numberOfPieces={1000}
+                        width={width}
+                        height={height}
+                    />
+            }
             <header>
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word within 8 attempts to keep the
                 programming world safe from Assembly!</p>
             </header>
 
-            <section 
-                aria-live="polite" 
-                role="status" 
+            <section
+                aria-live="polite"
+                role="status"
                 className={gameStatusClass}
             >
                 {renderGameStatus()}
@@ -157,33 +160,33 @@ export default function AssemblyEndgame() {
             <section className="word">
                 {letterElements}
             </section>
-            
+
             {/* Combined visually-hidden aria-live region for status updates */}
-            <section 
-                className="sr-only" 
-                aria-live="polite" 
+            <section
+                className="sr-only"
+                aria-live="polite"
                 role="status"
             >
                 <p>
-                    {currentWord.includes(lastGuessedLetter) ? 
-                        `Correct! The letter ${lastGuessedLetter} is in the word.` : 
+                    {currentWord.includes(lastGuessedLetter) ?
+                        `Correct! The letter ${lastGuessedLetter} is in the word.` :
                         `Sorry, the letter ${lastGuessedLetter} is not in the word.`
                     }
                     You have {numGuessesLeft} attempts left.
                 </p>
-                <p>Current word: {currentWord.split("").map(letter => 
-                guessedLetters.includes(letter) ? letter + "." : "blank.")
-                .join(" ")}</p>
-            
+                <p>Current word: {currentWord.split("").map(letter =>
+                    guessedLetters.includes(letter) ? letter + "." : "blank.")
+                    .join(" ")}</p>
+
             </section>
 
             <section className="keyboard">
                 {keyboardElements}
             </section>
 
-            {isGameOver && 
-                <button 
-                    className="new-game" 
+            {isGameOver &&
+                <button
+                    className="new-game"
                     onClick={startNewGame}
                 >New Game</button>}
         </main>
